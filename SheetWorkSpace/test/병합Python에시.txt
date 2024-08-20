@@ -1,0 +1,16 @@
+내가 나를 평가 1개
+남이 나를 평가 n개
+
+남이 나를 평가한 항목의 평균값을 구한뒤
+합치기
+
+
+# 이름과 학번을 기준으로 그룹화하여 각 질문에 대한 평균 계산
+grouped_df_new = df_new_upload.groupby(['이름', '학번']).mean().reset_index()
+
+# 결과를 새로운 엑셀 파일로 저장
+output_new_path = '/mnt/data/평균값_결과_새로운_파일.xlsx'
+grouped_df_new.to_excel(output_new_path, index=False)
+
+# 저장된 파일 경로 반환
+output_new_path
